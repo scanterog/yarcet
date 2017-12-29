@@ -1,0 +1,23 @@
+#!/bin/bash
+# yarcet.py wrapper
+set -euo pipefail
+topdir=$(dirname $(realpath $0))
+cd $topdir
+pypath=$(which python3)
+if [ -z "$pypath" ]; then
+  echo "python3 required and not found."
+  exit 1
+fi
+venvpath='env'
+if [ ! -d "$venvpath" ]; then
+  python3 -m venv $venvpath
+  set +u
+  . env/bin/activate
+  pip install -r requirements.txt
+  set -u
+fi
+set +u
+. env/bin/activate
+set -u
+
+python3 -m yarcet "$@"

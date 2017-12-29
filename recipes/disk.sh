@@ -1,0 +1,2 @@
+hostname
+df -h

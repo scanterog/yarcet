@@ -1,0 +1,14 @@
+{
+  "connection_mode": "sequential",
+  "output_mode": "tee",
+  "node_groups": {
+    "example.org": ["host.example.org", "mail.example.org", "backup.example.org"],
+    "staging": ["10.137.16.166", "10.137.16.64", "10.137.16.8"]
+  },
+  "ssh": {
+    "user": "scg",
+    "sudo": true,
+    "agent": true
+  },
+  "log_path": "./logs"
+}
